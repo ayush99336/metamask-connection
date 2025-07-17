@@ -1,5 +1,6 @@
 import { Card, CardHeader, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Image from 'next/image';
 
 type Product = {
   id: string;
@@ -23,11 +24,12 @@ export default function ProductGrid({ products, onBuy, ethPrice }: ProductGridPr
             <CardTitle>{product.name}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="zoom-img-wrapper overflow-hidden rounded-lg">
-              <img
+            <div className="zoom-img-wrapper overflow-hidden rounded-lg relative w-full min-h-[120px] max-h-[140px]">
+              <Image
                 src={product.image}
                 alt={product.name}
-                className="zoom-img w-full min-h-[120px] max-h-[140px] object-cover rounded-lg transition-transform duration-300"
+                fill
+                className="zoom-img object-cover transition-transform duration-300"
               />
             </div>
             <p className="mt-2 font-medium">Price: {ethPrice} ETH</p>
