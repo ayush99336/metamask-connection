@@ -41,7 +41,14 @@ export default function Home() {
     setWallet(null);
   };
 
-  const handleBuy = (product: Product) => setCart((prev) => [...prev, product]);
+  const handleBuy = (product: Product) => {
+    setCart((prev) => {
+      if (prev.some((item) => item.id === product.id)) {
+        return prev;
+      }
+      return [...prev, product];
+    });
+  };
 
   const handlePay = async () => {
     if (!wallet) {
