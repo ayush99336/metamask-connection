@@ -30,7 +30,7 @@ export default function Cart({ cart, total, onPay, paying, wallet }: CartProps) 
             <ul className="mb-3">
               {cart.map((item, idx) => (
                 <li key={idx}>
-                  {item.name} - ${item.price}
+                  {item.name} - {item.price}
                 </li>
               ))}
             </ul>
@@ -40,7 +40,7 @@ export default function Cart({ cart, total, onPay, paying, wallet }: CartProps) 
       </CardContent>
       <CardFooter>
         <Button onClick={onPay} disabled={cart.length === 0 || !wallet || paying} className="w-full">
-          {paying ? "Paying..." : `Pay ${total} ETH`}
+          {paying ? "Paying..." : `Pay {total} ETH`}
         </Button>
       </CardFooter>
     </Card>
