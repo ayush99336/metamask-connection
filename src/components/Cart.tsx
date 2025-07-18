@@ -30,7 +30,7 @@ export default function Cart({ cart, total, onPay, paying, wallet }: CartProps) 
             <ul className="mb-3">
               {cart.map((item, idx) => (
                 <li key={idx}>
-                  {item.name} - {item.price}
+                  {item.name} - {0.000001}
                 </li>
               ))}
             </ul>
